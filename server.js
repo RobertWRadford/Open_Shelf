@@ -11,7 +11,7 @@ app.set('view engine', 'ejs');
 
 // do not forget to add this line
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static('Open_Shelf/public'));
+app.use(express.static('public'));
 
 //render the HTML page at ./pages/index.ejs
 app.get('/', (req, res) => {
