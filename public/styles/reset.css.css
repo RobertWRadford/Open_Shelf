@@ -1,0 +1,255 @@
+@import url('https://fonts.googleapis.com/css2?family=Teko:wght@600&display=swap');
+
+header {
+	width:900px;
+	height:105px;
+	margin-left:90px;
+}
+
+header > img {
+	width:50px;
+	height:50px;
+	padding-right:10px;
+	margin-top:25px;
+}
+
+#headerLogoText {
+	width:160px;
+	height:50px;
+	display:inline-block;
+	vertical-align:top;
+	margin-top:20px;
+}
+
+#headerLogoText > h1 {
+	width:140px;
+	height:30px;
+	font-family:'Brush Script MT', cursive;
+	margin:0px;
+	font-size:44px;
+}
+
+#headerLogoText > p {
+	width:160px;
+	height:15px;
+	font-family:'Times New Roman';
+	margin-top:13px;
+	font-size:9px;
+	color:dimgrey;	
+}
+
+#headerImages {
+	width:245px;
+	height:25px;
+	display:inline-block;
+	margin-left:425px;
+	vertical-align:top;
+	margin-top:40px;
+}
+
+header > div > img {
+	width:25px;
+	height:25px;
+	padding-right:1px;
+}
+
+#morePaddingHeaderImg {
+	padding-left: 8px;
+}
+
+#lastHeaderImage {
+	padding-right: 0px;
+}
+
+body > p {
+	width:900px;
+	height:80px;
+	margin-top:30px;
+	margin-left:90px;
+	font-size:19px;
+	color:dimgrey;
+}
+
+#hrReplacement {
+	width:900px;
+	height:15px;
+	margin-left:90px;
+	background-image:url(images/hr-img.png);
+}
+
+#storeName {
+	width:245px;
+	height:35px;
+	font-family:'Teko', sans-serif;
+	font-size: 40px;
+	margin-left:90px;
+	margin-top:50px;
+	margin-bottom:0px;
+}
+
+#storeNameSubLine {
+	width:900px;
+	height:15px;
+	margin-left:90px;
+	margin-top: 5px;
+}
+
+#storeNameSubLine > img {
+	width:15px;
+	height:15px;
+	margin-left:640px;
+	vertical-align:top;
+}
+
+#dateLine {
+	width:200px;
+	height:15px;
+	display:inline-block;
+	font-family:'Times New Roman';
+	margin:0px;
+	font-size:10px;
+	vertical-align:top;
+	color:DarkGrey;
+}
+
+#printLabel {
+	width:35px;
+	height:15px;
+	display:inline-block;
+	font-family:'Times New Roman';
+	vertical-align:top;
+	margin:0px;
+	font-size:10px;
+	color:DarkGrey;
+}
+
+#previewPic {
+	width:900px;
+	height:600px;
+	margin-top:30px;
+	margin-left:90px;
+}
+
+#notepad {
+	width:900px;
+	height:300px;
+	margin-top:40px;
+	background-image: url(images/list-bg.png);
+	margin-left:90px;
+}
+
+#notepadLeft {
+	width:230px;
+	height:180px;
+	margin-top:20px;
+	margin-right:170px;
+	margin-left:60px;
+	display:inline-block;
+	vertical-align:top;
+}
+
+#notepadRight {
+	width:350px;
+	height:220px;
+	margin-top:20px;
+	display:inline-block;
+	vertical-align:top;
+}
+
+#notepad > section > ul {
+	list-style-type: "▢";
+	list-style-position:outside;
+	font-size:18px;
+	color:dimgrey;
+}
+
+#notepad > section > ul > li {
+	font-family:'Comic Sans MS';
+	margin-top:5px;
+}
+
+#bioDiv {
+	width:900px;
+	height:90px;
+	margin-top:20px;
+	margin-bottom:70px;
+	margin-left:90px;
+}
+
+#bioDiv > img {
+	width:70px;
+	height:70px;
+	margin-right:20px;
+}
+
+#bioDiv > section {
+	width:600px;
+	height:90px;
+	margin-right:10px;
+	display:inline-block;
+	vertical-align:top;
+}
+
+#bioDiv > section > h2 {
+	width:200px;
+	height:20px;
+	margin-bottom:20px;
+	font-family:'Arial';
+	margin:0px;
+	font-size:20px;
+	color:dimgrey;
+}
+
+#bioDiv > section > p {
+	width:600px;
+	height:50px;
+	font-family:'Arial';
+	margin:0px;
+	margin-top:20px;
+	font-size:18px;
+	color:dimgrey;
+}
+
+#bioDiv > button {
+	width:190px;
+	height:60px;
+	background-color:#BC7058;
+	color:white;
+	font-family:'Arial';
+	font-size:18px;
+	display:inline-block;
+	margin-top:10px;
+	vertical-align:top;
+	border:none;
+}
+
+
+
+.small-logo {
+	display: flex;
+	width:900px;
+	height:35px;
+	margin-left:90px;
+}
+
+hr {
+	align-self: center;
+	width: 50%;
+	height: 1px
+}
+
+.small-logo > hr > img {
+	width:30px;
+	height:35px;
+	margin-left:5px;
+	margin-right:5px;
+}
+
+footer {
+	width:260px;
+	height:40px;
+	margin-top:30px;
+	margin-left:410px;
+	font-size:15px;
+	color:DarkGrey;
+}
