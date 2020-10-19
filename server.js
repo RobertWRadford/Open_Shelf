@@ -1,20 +1,24 @@
 'use strict';
 
+require('dotenv').config();
 const express = require('express');
 const superagent = require('superagent');
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3030;
+
+//include ejs usage
+app.set('view engine', 'ejs');
 
 // do not forget to add this line
 app.use(express.urlencoded({ extended: true }));
-// app.use(express.static('public'));
+app.use(express.static('Open_Shelf/public'));
 
-app.set('view engine', 'ejs');
-
+//render the HTML page at ./pages/index.ejs
 app.get('/', (req, res) => {
   res.render('pages/index');
 });
 
+//post the searches folder
 app.post('/searches', createSearch);
 
 function createSearch(req, res) {
