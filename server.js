@@ -1,41 +1,43 @@
 'use strict';
 
 const express = require('express');
-const dotenv = require('dotenv');
+const superagent = require('superagent');
 const app = express();
+const PORT = process.env.PORT || 3000;
 
-dotenv.config();
+// do not forget to add this line
+app.use(express.urlencoded({ extended: true }));
+// app.use(express.static('public'));
 
 app.set('view engine', 'ejs');
 
-const PORT = process.env.PORT || 3000;
-
-// first route - simple array management -> /list
-let list = ['apples', 'celery', 'butter', 'milk', 'eggs'];
-
-let quantities = [
-  { name: 'apples', quantity: 4 },
-  { name: 'celery', quantity: 2 },
-  { name: 'butter', quantity: 100 },
-  { name: 'milk', quantity: 1 },
-  { name: 'eggs', quantity: 12 }
-]
-
 app.get('/', (req, res) => {
-  // when we hit this route, send the user back
-  // a file -> that file is the associated ejs template
-  // you can omit the .ejs from it
-  res.render('index');
+  res.render('pages/index');
 });
 
-app.get('/list', (req, res) => {
-  res.render('list', { arrayOfItems: list })
-});
+app.post('/searches', createSearch);
 
-app.get('/quantities', (req, res) => {
-  res.render('quantities', { groceryObjects: quantities })
-});
+function createSearch(req, res) {
+  let url = 'https://www.googleapis.com/books/v1/volumes?q=';
+  console.log('request body:', req.body);
+  console.log('form data:', req.body.search);
+
+  if (req.body.search[1] === 'title') { url += `+intitle:${req.body.search[0]}`; }
+  if (req.body.search[1] === 'author') { url += `+inauthor:${req.body.search[0]}`; }
+
+  superagent.get(url)
+    .then(data => {
+      console.log('google books data:', data);
+      res.json(data.text);
+      // res.render('results', { results: data }) <--- hint!
+    })
+    .catch(err => console.error(err))
+    // another hint!
+    // you aren't going to send json, you are going to send
+    // a page with json data already mapped into it
+    // ie: res.render('bookresults', { searchResults: data })
+}
 
 app.listen(PORT, () => {
-  console.log(`server up! :::${PORT}:::`)
+  console.log(`listening on ${PORT}`);
 });
