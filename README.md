@@ -1,22 +1,22 @@
 # Open_Shelf
 
 ## Feature 1
-Number and name of feature: ________________________________
+Number and name of feature: Load quickly
 
-Estimate of time needed to complete: _____
+Estimate of time needed to complete: 1 hour
 
-Start time: _____
+Start time: 2:30pm
 
-Finish time: _____
+Finish time: 4:00pm
 
-Actual time needed to complete: _____
+Actual time needed to complete: 1 hour 30 minutes
 
 ## Feature 2
-Number and name of feature: ________________________________
+Number and name of feature: Google Books API
 
-Estimate of time needed to complete: _____
+Estimate of time needed to complete: 1 hour 30 minutes
 
-Start time: _____
+Start time: 4:00pm
 
 Finish time: _____
 
