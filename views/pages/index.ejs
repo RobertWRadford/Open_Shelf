@@ -1,15 +1,29 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>EJS Demo!</title>
+    <title>Book App Demo</title>
   </head>
   <body>
-    <h1>Welcome To Grocery Store!</h1>
-    <nav>
-      <ul>
-        <li><a href="/list">My List Page</a></li>
-        <li><a href="/quantities">My Quanitites Page</a></li>
-      </ul>
-    </nav>
+    <h1>Search for Books:</h1>
+
+    <form action="/searches" method="post">
+      <!-- when we make a form with a "post" method -->
+      <!-- the data from the form is avail on the req.body -->
+      <!-- it is available via the input "name" -->
+
+      <fieldset>
+        <input type="text" name="search" placeholder="search..." required>
+      </fieldset>
+
+      <fieldset>
+        <input type="radio" name="search" value="title" required>Title
+      </fieldset>
+
+      <fieldset>
+        <input type="radio" name="search" value="author" required>Author
+      </fieldset>
+
+      <button type="submit">Search the GBooks API</button>
+    </form>
   </body>
 </html>
