@@ -13,8 +13,12 @@ app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
-//render the HTML page at ./pages/index.ejs
 app.get('/', (req, res) => {
+  res.render('pages/searches/new');
+});
+
+//render the HTML page at ./pages/index.ejs
+app.get('/hello', (req, res) => {
   res.render('pages/index');
 });
 
