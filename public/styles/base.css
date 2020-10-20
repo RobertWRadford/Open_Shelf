@@ -1,47 +1,59 @@
 body {
-	display: grid;
-	width: 100vw;
-	background: lightgrey;
+	display: inline-grid;
+	background: rgb(155,155,155);
 	text-align: center;
 	grid-template-columns: 10.25vw 79.5vw 10.25vw;
 	grid-template-rows: 8.6vh 5.8vh 4.4vh 6.4vh 2.9vh 6.4vh 2.9vh 6.4vh 2.9vh 6.4vh 41.1vh 5.8vh;
 }
 
 header {
-	background-color: black;
+	background-color: rgb(0,0,0);
 	color: white;
-	grid-column-start: 0;
-	grid-column-end: 3;
-	grid-row-start: 0;
-	grid-row-end: 1;
-	display: grid;
+	grid-column-start: 1;
+	grid-column-end: 4;
+	grid-row-start: 1;
+	grid-row-end: 2;
+	display: inline-grid;
 	grid-template-columns: 30.9vw 55.2vw 13.9vw;
 	grid-template-rows: 2.77vh 2.77vh 3.06vh;
 }
 
-h2{
-	background-color: darkgrey;
+h2 {
+	background-color:  rgb(74,74,74);
+	line-height: 5.8vh;
 	color: white;
-	grid-column-start: 0;
-	grid-column-end: 3;
-	grid-row-start: 1;
-	grid-row-end: 2;
+	grid-column-start: 1;
+	grid-column-end: 4;
+	grid-row-start: 2;
+	grid-row-end: 3;
 }
 
 input {
 	background-color: white;
+	border-radius: 8px;
+}
+
+fieldset {
+	background-color: rgb(216,216,216);
+	line-height: 6.4vh;
+	text-align: left;
+	padding-left: 3vw;
+	border-radius: 8px;
 }
 
 button{
 	background-color: black;
 	color: white;
+	border-radius: 8px;
+	line-height: 6.3vh;
+	font-size: 2.5vw;
 }
 
 footer {
 	background-color: black;
-	display: grid;
-	grid-column-start: 0;
-	grid-column-end: 3; 
+	display: inline-grid;
+	grid-column-start: 1;
+	grid-column-end: 4; 
 	grid-row-start: 12;
 	grid-row-end: 13;
 	grid-template-columns: 4vw 4vw 25.3vw 4vw 25.3vw 4vw 25.3vw 4vw 4vw;
@@ -54,11 +66,11 @@ footer > div {
 }
 
 form {
-	display: grid;
-	grid-column-start: 1;
-	grid-column-end: 2;
-	grid-row-start: 3; 
-	grid-row-end: 10;
+	display: inline-grid;
+	grid-column-start: 2;
+	grid-column-end: 3;
+	grid-row-start: 4; 
+	grid-row-end: 11;
 	grid-template-columns: 79.5vw;
 	grid-template-rows: 6.4vh 2.9vh 6.4vh 2.9vh 6.4vh 2.9vh 6.4vh;
 }
