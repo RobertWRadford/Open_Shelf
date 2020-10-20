@@ -48,12 +48,14 @@ function createSearch(req, res) {
       res.render('pages/searches/show', { results: bookShelf});
       // res.json(data.text);
     })
-    .catch(err => console.error(err))
+    .catch(err => res.render('pages/error', { error: err}));
     // another hint!
     // you aren't going to send json, you are going to send
     // a page with json data already mapped into it
     // ie: res.render('bookresults', { searchResults: data })
 }
+
+app.get('*', (req, res) => res.render('pages/error', { error: '404'}));
 
 app.listen(PORT, () => {
   console.log(`listening on ${PORT}`);
