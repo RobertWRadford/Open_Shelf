@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Quantities Page!</title>
+    <title>Bookshelf!</title>
   </head>
   <body>
-    <h1>Grocery Quantities</h1>
+    <h1>Search Results:</h1>
     <ul>
-      <% groceryObjects.forEach(foodItem => { %>
+      <% results.forEach(book => { %>
         <li>
-          <p>Item: <%= foodItem.name %></p>
-          <p>Amount: <%= foodItem.quantity %></p>
+          <img src=<%= book.image %> >
+          <h2><%= book.title %></h2>
+          <h3><%= book.authors %></h3>
+          <p><%= book.description %></p>
         </li>
       <% }) %>
     </ul>

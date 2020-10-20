@@ -13,27 +13,40 @@ app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
-//render the HTML page at ./pages/index.ejs
 app.get('/', (req, res) => {
+  res.render('pages/searches/new');
+});
+
+//render the HTML page at ./pages/index.ejs
+app.get('/hello', (req, res) => {
   res.render('pages/index');
 });
 
 //post the searches folder
 app.post('/searches', createSearch);
 
-function createSearch(req, res) {
-  let url = 'https://www.googleapis.com/books/v1/volumes?q=';
-  console.log('request body:', req.body);
-  console.log('form data:', req.body.search);
+function Book(obj) {
+  let thumbnail = obj.volumeInfo.imageLinks.thumbnail ? obj.volumeInfo.imageLinks.thumbnail: 'https://i.imgur.com/J5LVHEL.jpg';
+  if (thumbnail[4] !== 's') {
+    thumbnail = thumbnail.slice(0, 4) + 's' + thumbnail.slice(4);
+  }
+  this.image = thumbnail;
+  this.title = obj.volumeInfo.title ? obj.volumeInfo.title: 'Unknown';
+  this.authors = obj.volumeInfo.authors[0] ? obj.volumeInfo.authors: 'Unknown';
+  this.description = obj.volumeInfo.description ? obj.volumeInfo.description: 'No Description';
+}
 
-  if (req.body.search[1] === 'title') { url += `+intitle:${req.body.search[0]}`; }
-  if (req.body.search[1] === 'author') { url += `+inauthor:${req.body.search[0]}`; }
+function createSearch(req, res) {
+  let searchType = 'in' + req.body.search[1];
+  let searchQuery = req.body.search[0];
+  let url = `https://www.googleapis.com/books/v1/volumes?q=${searchType}:${searchQuery}&results=10`;
+
 
   superagent.get(url)
     .then(data => {
-      console.log('google books data:', data);
-      res.json(data.text);
-      // res.render('results', { results: data }) <--- hint!
+      let bookShelf = data.body.items.map(books => new Book(books));
+      res.render('pages/searches/show', { results: bookShelf});
+      // res.json(data.text);
     })
     .catch(err => console.error(err))
     // another hint!
