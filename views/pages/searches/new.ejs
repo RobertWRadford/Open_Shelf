@@ -12,48 +12,53 @@
   </head>
   <body>
     <header>
-      <p>Search for Books:</p>
-      <!-- Top Navigation Menu -->
-      <div class="topnav">
+      <h1 class='headH1'>Best Books!</h1>
+
+      <!-- <div class="topnav">
         <a href="#home" class="active">Logo</a>
-        <!-- Navigation links (hidden by default) -->
+
         <div id="myLinks">
           <a href="#news">News</a>
           <a href="#contact">Contact</a>
           <a href="#about">About</a>
         </div>
-        <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
+
         <a href="javascript:void(0);" class="icon" onclick="myFunction()">
           <i class="fa fa-bars"></i>
         </a>
-      </div>
+      </div> -->
     </header>
+
+    <h2>Search by Title or Author</h2>
 
     <form action="/searches" method="post">
       <!-- when we make a form with a "post" method -->
       <!-- the data from the form is avail on the req.body -->
       <!-- it is available via the input "name" -->
 
-      <fieldset>
-        <input type="text" name="search" placeholder="search..." required>
+      <fieldset class='inpA'>
+        <input  type="text" name="search" placeholder="Enter a title or author" required>
       </fieldset>
 
-      <fieldset>
-        <input type="radio" name="search" value="title" required>Title
+      <fieldset class='inpB'>
+        <input  type="radio" name="search" value="title" required>Title
       </fieldset>
 
-      <fieldset>
-        <input type="radio" name="search" value="author" required>Author
+      <fieldset class='inpC'>
+        <input  type="radio" name="search" value="author" required>Author
       </fieldset>
 
-      <button type="submit">Search the GBooks API</button>
+      <button class='inpD' type="submit">Search the Google Books API</button>
     </form>
 
     <footer>
-
+      <div class='footDivA'></div>
+      <div class='footDivB'></div>
+      <div class='footDivC'></div>
+      <div class='footDivD'></div>
     </footer>
 
-  <script>
+  <!-- <script>
     //source https://www.w3schools.com/howto/howto_js_mobile_navbar.asp
     function myFunction() {
       var navElements = document.getElementById("myLinks");
@@ -63,7 +68,7 @@
         navElements.style.display = "block";
       }
     }
-  </script>
+  </script> -->
 
   </body>
 </html>
