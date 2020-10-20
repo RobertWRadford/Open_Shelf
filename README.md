@@ -14,42 +14,42 @@ Actual time needed to complete: 1 hour 30 minutes
 ## Feature 2
 Number and name of feature: Google Books API
 
-Estimate of time needed to complete: 1 hour 30 minutes
+Estimate of time needed to complete: 30 minutes
 
 Start time: 4:00pm
 
-Finish time: _____
+Finish time: 4:20pm
 
-Actual time needed to complete: _____
+Actual time needed to complete: 20 minutes
 
 ## Feature 3
-Number and name of feature: ________________________________
+Number and name of feature: Browse results
 
-Estimate of time needed to complete: _____
+Estimate of time needed to complete: 1 hour
 
-Start time: _____
+Start time: 4:30pm
 
-Finish time: _____
+Finish time: 6:30pm
 
-Actual time needed to complete: _____
+Actual time needed to complete: 2 hours
 
 ## Feature 4
-Number and name of feature: ________________________________
+Number and name of feature: Error handling
 
-Estimate of time needed to complete: _____
+Estimate of time needed to complete: 15 minutes
 
-Start time: _____
+Start time: 6:30 pm
 
-Finish time: _____
+Finish time: 6:35 pm
 
-Actual time needed to complete: _____
+Actual time needed to complete: 5 minutes
 
 ## Feature 5
-Number and name of feature: ________________________________
+Number and name of feature: User Interface
 
-Estimate of time needed to complete: _____
+Estimate of time needed to complete: 1 hour and 30 minutes
 
-Start time: _____
+Start time: 6:40 pm
 
 Finish time: _____
 

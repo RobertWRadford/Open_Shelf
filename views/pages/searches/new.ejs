@@ -2,29 +2,73 @@
 <html>
   <head>
     <title>Book App Demo</title>
+    <link href='styles/reset.css' rel='stylesheet'/>
+    <link href='styles/base.css' rel='stylesheet'/>
+    <link href='styles/layout.css' rel='stylesheet'/>
+    <link href='styles/modules.css' rel='stylesheet'/>
+    <!-- sourced from https://www.w3schools.com/howto/howto_js_mobile_navbar.asp -->
+    <!-- Load an icon library to show a hamburger menu (bars) on small screens -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
   <body>
-    <h1>Search for Books:</h1>
-  
+    <header>
+      <h1 class='headH1'>Best Books!</h1>
+
+      <!-- <div class="topnav">
+        <a href="#home" class="active">Logo</a>
+
+        <div id="myLinks">
+          <a href="#news">News</a>
+          <a href="#contact">Contact</a>
+          <a href="#about">About</a>
+        </div>
+
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+          <i class="fa fa-bars"></i>
+        </a>
+      </div> -->
+    </header>
+
+    <h2>Search by Title or Author</h2>
+
     <form action="/searches" method="post">
       <!-- when we make a form with a "post" method -->
       <!-- the data from the form is avail on the req.body -->
       <!-- it is available via the input "name" -->
 
-      <fieldset>
-        <input type="text" name="search" placeholder="search..." required>
+      <fieldset class='inpA'>
+        <input  type="text" name="search" placeholder="Enter a title or author" required>
       </fieldset>
 
-      <fieldset>
-        <input type="radio" name="search" value="title" required>Title
+      <fieldset class='inpB'>
+        <input  type="radio" name="search" value="title" required>Title
       </fieldset>
 
-      <fieldset>
-        <input type="radio" name="search" value="author" required>Author
+      <fieldset class='inpC'>
+        <input  type="radio" name="search" value="author" required>Author
       </fieldset>
 
-      <button type="submit">Search the GBooks API</button>
+      <button class='inpD' type="submit">Search the Google Books API</button>
     </form>
+
+    <footer>
+      <div class='footDivA'></div>
+      <div class='footDivB'></div>
+      <div class='footDivC'></div>
+      <div class='footDivD'></div>
+    </footer>
+
+  <!-- <script>
+    //source https://www.w3schools.com/howto/howto_js_mobile_navbar.asp
+    function myFunction() {
+      var navElements = document.getElementById("myLinks");
+      if (navElements.style.display === "block") {
+        navElements.style.display = "none";
+      } else {
+        navElements.style.display = "block";
+      }
+    }
+  </script> -->
 
   </body>
 </html>
