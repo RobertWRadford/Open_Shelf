@@ -1,21 +1,13 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Bookshelf!</title>
-    <link href='styles/reset.css' rel='stylesheet'/>
-  </head>
-  <body>
-    <h1>Search Results:</h1>
-    <ul>
-      <% books.forEach((book, index) => { %>
-        <li>
-          <img src= <%= book.image %> >
-          <h2><%= book.title %></h2>
-          <h3><%= book.authors %></h3>
-          <p><%= book.description %></p>
-          <p><%= index + 1 %> Of <%= books.length %></p>
-        </li>
-      <% }); %>
-    </ul>
-  </body>
-</html>
+<ul>
+  <% books.forEach((book, index) => { %>
+    <li>
+      <img src= <%= book.image %> >
+      <h2><%= book.title %></h2>
+      <h3><%= book.authors %></h3>
+      <p><%= book.description %></p>
+      <p><%= book.ID %></p>
+      <p>Bookshelf: Fantasy</p>
+      <p><%= index + 1 %> Of <%= books.length %></p>
+    </li>
+  <% }); %>
+</ul>

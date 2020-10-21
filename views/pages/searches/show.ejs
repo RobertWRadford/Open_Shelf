@@ -5,7 +5,7 @@
     <link href='styles/reset.css' rel='stylesheet'/>
   </head>
   <body>
-    <h1>Search Results:</h1>
-    <%- include('./books/show', { books : searchBooks }) %>
+    <a href='/'>home</a>
+    <%- include('../books/show.ejs', { books: searchBooks }) %>
   </body>
 </html>
