@@ -32,16 +32,16 @@ app.get('/', (req, res) => {
 
 app.get('/books/:id', (req, res) => {
   
-  let searchIsbn = req.params.id;
-  let url = `https://www.googleapis.com/books/v1/volumes?q=isbn:${searchIsbn}`;
+  let searchId = req.params.id;
 
-  superagent.get(url)
-    .then(data => {
-      let bookShelf = data.body.items.map(books => new Book(books));
-      res.render('pages/searches/show', {searchBooks: bookShelf} );
-      // res.json(data.text);
+  let sql = `SELECT * FROM books where id=${searchId}`
+
+  client.query(sql)
+    .then(results => {
+      res.render('pages/books/detail', {book: results.rows[0]});
     })
-    .catch(err => res.render('pages/error', { error: err}));
+    .catch(err => console.error('returned error:', err));
+
 });
 
 //render the HTML page at ./pages/index.ejs
@@ -51,6 +51,7 @@ app.get('/search', (req, res) => {
 
 //post the searches folder
 app.post('/searches', createSearch);
+app.post('/books', saveBook);
 
 function Book(obj) {
   let thumbnail = obj.volumeInfo.imageLinks ? obj.volumeInfo.imageLinks.thumbnail ? obj.volumeInfo.imageLinks.thumbnail : 'https://i.imgur.com/J5LVHEL.jpg' : 'https://i.imgur.com/J5LVHEL.jpg';
@@ -61,7 +62,7 @@ function Book(obj) {
   this.title = obj.volumeInfo.title ? obj.volumeInfo.title : 'Unknown';
   this.authors = obj.volumeInfo.authors[0] ? obj.volumeInfo.authors : 'Unknown';
   this.description = obj.volumeInfo.description ? obj.volumeInfo.description : 'No Description';
-  this.ID = obj.volumeInfo.industryIdentifiers ? obj.volumeInfo.industryIdentifiers[0].type == 'isbn_10' ? obj.volumeInfo.industryIdentifiers[0].identifier : obj.volumeInfo.industryIdentifiers[1].identifier : 'unkown';
+  this.isbn = obj.volumeInfo.industryIdentifiers ? obj.volumeInfo.industryIdentifiers[0].type.includes('ISBN') ? obj.volumeInfo.industryIdentifiers[0].identifier : obj.volumeInfo.industryIdentifiers[0].identifier.replace(/\b[A-Z]*?\b\:/, '') : 'unknown';
 }
 
 function createSearch(req, res) {
@@ -80,6 +81,23 @@ function createSearch(req, res) {
   // you aren't going to send json, you are going to send
   // a page with json data already mapped into it
   // ie: res.render('bookresults', { searchResults: data })
+}
+
+function saveBook(req, res){
+  let savedBook = {
+    title: req.body.title,
+    image: req.body.image,
+    authors: req.body.authors,
+    description: req.body.description,
+    isbn: req.body.isbn
+  };
+  let sql = 'INSERT INTO books (authors, title, image, description, isbn) VALUES($1, $2, $3, $4, $5) RETURNING id';
+  let values = [savedBook.authors, savedBook.title, savedBook.image, savedBook.description, savedBook.isbn]
+  client.query(sql, values)
+    .then(results => {
+      res.redirect(`/books/${results.rows[0].id}`);
+    })
+    .catch(err => res.render('pages/error', { error: err}));
 }
 
 app.get('*', (req, res) => res.render('pages/error', { error: '404'}));

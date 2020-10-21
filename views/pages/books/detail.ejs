@@ -7,17 +7,6 @@
   </head>
   <body>
     <p>Hello World</p>
-    <%- include('books/show.ejs', { books : [book] }) %>
+    <%- include('show.ejs', { book : book }) %>
   </body>
 </html>
-
-// <section class='bookshelf'>
-
-	// <img src= <%= book.image %> >
-	// <h2><%= book.title %></h2>
-	// <h3><%= book.authors %></h3>
-	// <p><%= book.description %></p>
-	// <p><%= book.ID %></p>
-	// <p>Bookshelf: Fantasy</p>
-
-// </section>

@@ -6,7 +6,11 @@
     <link href='styles/base.css' rel='stylesheet'/>
   </head>
   <body>
+    <a href='/search'>New Search</a>
     <p>Hello World</p>
-    <%- include('books/show.ejs', { books : seedBooks }) %>
+    <% seedBooks.forEach((book, index) => { %>
+      <%- include('books/show.ejs', { book : book }) %>
+      <a href='books/<%=book.id%>'>View details</a>
+    <% }); %>
   </body>
 </html>
