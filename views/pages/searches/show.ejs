@@ -1,11 +1,25 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Bookshelf!</title>
-    <link href='styles/reset.css' rel='stylesheet'/>
-  </head>
+  <%- include('../../layout/head') %>
   <body>
-    <a href='/'>home</a>
-    <%- include('../books/show.ejs', { books: searchBooks }) %>
+    <%- include('../../layout/header') %>
+    <ul>
+      <% searchBooks.forEach((book, index) => { %>
+        <li>
+          <%- include('../books/show.ejs', { book : book }) %>
+          <p><%= index + 1 %> Of <%= searchBooks.length %></p>
+          <form action="/books" method="post">
+            <input type='hidden' name='title' value= '<%= book.title %>'/>
+            <input type='hidden' name='image' value= '<%= book.image %>'/>
+            <input type='hidden' name='authors' value= '<%= book.authors %>'/>
+            <input type='hidden' name='description' value= '<%= book.description %>'/>
+            <input type='hidden' name='isbn' value= '<%= book.isbn %>'/>
+            <input class='save' value='Save' type='submit'/>
+          </form>
+        </li>
+      <% }); %>
+    </ul>
+    <%- include('../../layout/footer') %>
+    <%- include('../../layout/navScript') %>
   </body>
 </html>
