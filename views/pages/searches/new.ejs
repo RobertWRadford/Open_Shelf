@@ -1,27 +1,8 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Book App Demo</title>
-    <link href='styles/reset.css' rel='stylesheet'/>
-    <link href='styles/base.css' rel='stylesheet'/>
-    <link href='styles/layout.css' rel='stylesheet'/>
-    <link href='styles/modules.css' rel='stylesheet'/>
-    <!-- sourced from https://www.w3schools.com/howto/howto_js_mobile_navbar.asp -->
-    <!-- Load an icon library to show a hamburger menu (bars) on small screens -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  </head>
+  <%- include('../../layout/head') %>
   <body>
-    <header>
-      <h1 class='headH1'>Best Books!</h1>
-      
-      <div class="topnav">
-
-        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-          <i class="fa fa-bars"></i>
-        </a>
-        
-      </div>
-    </header>
+    <%- include('../../layout/header') %>
     
     <a id="myLinks" class="home" href="#home">Home</a>
     <h2>Search by Title or Author</h2>
@@ -44,24 +25,9 @@
       <button class='inpD' type="submit">Search the Google Books API</button>
     </form>
 
-    <footer>
-      <div class='footDivA'></div>
-      <div class='footDivB'></div>
-      <div class='footDivC'></div>
-      <div class='footDivD'></div>
-    </footer>
+    <%- include('../../layout/footer') %>
 
-  <script>
-    //source https://www.w3schools.com/howto/howto_js_mobile_navbar.asp
-    function myFunction() {
-      var navElements = document.getElementById("myLinks");
-      if (navElements.style.display === "block") {
-        navElements.style.display = "none";
-      } else {
-        navElements.style.display = "block";
-      }
-    }
-  </script>
+    <%- include('../../layout/navScript') %>
 
   </body>
 </html>

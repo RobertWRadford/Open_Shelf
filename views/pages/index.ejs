@@ -1,16 +1,15 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Book App Demo</title>
-    <link href='styles/reset.css' rel='stylesheet'/>
-    <link href='styles/base.css' rel='stylesheet'/>
-  </head>
+  <%- include('../layout/head') %>
   <body>
+    <%- include('../layout/header') %>
     <a href='/search'>New Search</a>
     <p>Hello World</p>
     <% seedBooks.forEach((book, index) => { %>
       <%- include('books/show.ejs', { book : book }) %>
       <a href='books/<%=book.id%>'>View details</a>
     <% }); %>
+    <%- include('../layout/footer') %>
+    <%- include('../layout/navScript') %>
   </body>
 </html>

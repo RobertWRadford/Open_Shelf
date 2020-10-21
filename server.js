@@ -60,7 +60,7 @@ function Book(obj) {
   }
   this.image = thumbnail;
   this.title = obj.volumeInfo.title ? obj.volumeInfo.title : 'Unknown';
-  this.authors = obj.volumeInfo.authors[0] ? obj.volumeInfo.authors : 'Unknown';
+  this.authors = obj.volumeInfo.authors ? obj.volumeInfo.authors : 'Unknown';
   this.description = obj.volumeInfo.description ? obj.volumeInfo.description : 'No Description';
   this.isbn = obj.volumeInfo.industryIdentifiers ? obj.volumeInfo.industryIdentifiers[0].type.includes('ISBN') ? obj.volumeInfo.industryIdentifiers[0].identifier : obj.volumeInfo.industryIdentifiers[0].identifier.replace(/\b[A-Z]*?\b\:/, '') : 'unknown';
 }
@@ -69,6 +69,7 @@ function createSearch(req, res) {
   let searchType = 'in' + req.body.search[1];
   let searchQuery = req.body.search[0];
   let url = `https://www.googleapis.com/books/v1/volumes?q=${searchType}:${searchQuery}`;
+  console.log(url);
 
   superagent.get(url)
     .then(data => {

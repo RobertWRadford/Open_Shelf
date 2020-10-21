@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Book App Demo</title>
-    <link href='styles/reset.css' rel='stylesheet'/>
-    <link href='styles/base.css' rel='stylesheet'/>
-  </head>
+  <%- include('../../layout/head') %>
   <body>
-    <p>Hello World</p>
+  	<%- include('../../layout/header') %>
     <%- include('show.ejs', { book : book }) %>
+    <%- include('../../layout/footer') %>
+    <%- include('../../layout/navScript') %>
   </body>
 </html>
