@@ -9,8 +9,16 @@
 }
 
 /* Hide the links inside the navigation menu (except for logo/home) */
-.topnav #myLinks {
-  display: none;
+#myLinks {
+	display: none;
+	background-color:  rgba(0, 0, 0, 0.8);
+	line-height: 5.8vh;
+	color: white;
+	grid-column-start: 1;
+	grid-column-end: 4;
+	grid-row-start: 2;
+	grid-row-end: 3;
+	z-index: 1;
 }
 
 /* Style navigation menu links */
@@ -19,7 +27,7 @@
   padding: 14px 16px;
   text-decoration: none;
   font-size: 17px;
-  display: block;
+	display: block;
 }
 
 /* Style the hamburger menu */
