@@ -5,16 +5,7 @@
     <link href='styles/reset.css' rel='stylesheet'/>
   </head>
   <body>
-    <h1>Search Results:</h1>
-    <ul>
-      <% results.forEach(book => { %>
-        <li>
-          <img src= <%= book.image %> >
-          <h2><%= book.title %></h2>
-          <h3><%= book.authors %></h3>
-          <p><%= book.description %></p>
-        </li>
-      <% }); %>
-    </ul>
+    <a href='/'>home</a>
+    <%- include('../books/show.ejs', { books: searchBooks }) %>
   </body>
 </html>
