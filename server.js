@@ -6,6 +6,7 @@ const pg = require('pg');
 const superagent = require('superagent');
 const app = express();
 const cors = require('cors');
+const methodOverride = require('method-override');
 const { response } = require('express');
 const PORT = process.env.PORT || 3030;
 const client = new pg.Client(process.env.DATABASE_URL);
@@ -20,6 +21,7 @@ app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 app.use(cors());
+app.use(methodOverride('_method'));
 
 app.get('/', (req, res) => {
   let sql = `SELECT * FROM books;`;
@@ -34,7 +36,7 @@ app.get('/books/:id', (req, res) => {
   
   let searchId = req.params.id;
 
-  let sql = `SELECT * FROM books where id=${searchId}`
+  let sql = `SELECT * FROM books WHERE id=${searchId}`
 
   client.query(sql)
     .then(results => {
@@ -43,6 +45,29 @@ app.get('/books/:id', (req, res) => {
     .catch(err => console.error('returned error:', err));
 
 });
+
+app.delete('/books/:id', (req, res) => {
+
+
+  let searchId = req.params.id;
+
+  let sql = `DELETE FROM books WHERE id=${searchId}`
+
+  return client.query(sql)
+    .then(res.redirect('/'))
+    .catch(err => console.error('returned error:', err));
+
+});
+
+app.put('/books/:id', (req, res) => {
+  let searchId = req.params.id;
+  let sql = `UPDATE books SET title=$1, authors=$2, image=$3, description=$4 WHERE id=${searchId}`
+  let values = [req.body.title, req.body.authors, req.body.image, req.body.description];
+
+  client.query(sql, values)
+    .then(res.redirect('back'))
+    .catch(err => console.error('returned error:', err));
+})
 
 //render the HTML page at ./pages/index.ejs
 app.get('/search', (req, res) => {

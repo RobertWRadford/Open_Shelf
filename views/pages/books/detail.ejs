@@ -4,9 +4,25 @@
   <body>
     <%- include('../../layout/header') %>
     <div class="detailContainer">
+      <%- include('edit.ejs', { book : book }) %>
       <%- include('show.ejs', { book : book }) %>
     </div>
+    <button id='updateButton' onclick="updateBook()">update details</button>
+	<form action='/books/<%= book.id %>?_method=DELETE' method='post'>
+		<button>delete book</button>
+	</form>
     <%- include('../../layout/footer') %>
     <%- include('../../layout/navScript') %>
+    <script>
+    var updateForms = document.getElementById("updateForm");
+      updateForms.style.display = "none";
+      
+      function updateBook(){
+        if (updateForms.style.display === "none") {
+        updateForms.style.display = "block";
+      }
+  }
+
+    </script>
   </body>
 </html>
