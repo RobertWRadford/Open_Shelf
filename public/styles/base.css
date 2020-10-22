@@ -1,18 +1,18 @@
 body {
-	display: inline-grid;
 	background: rgb(155,155,155);
 	text-align: center;
-	grid-template-columns: 10.25vw 79.5vw 10.25vw;
-	grid-template-rows: 8.6vh 5.8vh 4.4vh 6.4vh 2.9vh 6.4vh 2.9vh 6.4vh 2.9vh 6.4vh 41.1vh 5.8vh;
+	border-collapse: collapse;
+	border-spacing: 0px;
 }
 
 header {
 	background-color: rgb(0,0,0);
+	position: fixed;
+	top: 0;
+	left: 0;
 	color: white;
-	grid-column-start: 1;
-	grid-column-end: 4;
-	grid-row-start: 1;
-	grid-row-end: 2;
+	height: 8.6vh;
+	width: 100vw; 
 	display: inline-grid;
 	grid-template-columns: 30.9vw 55.2vw 13.9vw;
 	grid-template-rows: 2.77vh 2.77vh 3.06vh;
@@ -24,8 +24,8 @@ h2 {
 	color: white;
 	grid-column-start: 1;
 	grid-column-end: 4;
-	grid-row-start: 2;
-	grid-row-end: 3;
+	grid-row-start: 1;
+	grid-row-end: 2;
 	z-index: 0;
 }
 
@@ -53,10 +53,8 @@ button{
 footer {
 	background-color: black;
 	display: inline-grid;
-	grid-column-start: 1;
-	grid-column-end: 4; 
-	grid-row-start: 12;
-	grid-row-end: 13;
+	height: 5.8vh;
+	width:100vw;
 	grid-template-columns: 4vw 4vw 25.3vw 4vw 25.3vw 4vw 25.3vw 4vw 4vw;
 	grid-template-rows: 1.75vh 2.63vh 1.75vh;
 }
@@ -66,12 +64,3 @@ footer > div {
 	border-radius: 50%;
 }
 
-form {
-	display: inline-grid;
-	grid-column-start: 2;
-	grid-column-end: 3;
-	grid-row-start: 4; 
-	grid-row-end: 11;
-	grid-template-columns: 79.5vw;
-	grid-template-rows: 6.4vh 2.9vh 6.4vh 2.9vh 6.4vh 2.9vh 6.4vh;
-}

@@ -4,10 +4,11 @@
   <body>
     <%- include('../../layout/header') %>
     
-    <a id="myLinks" class="home" href="#home">Home</a>
+    <div class="newContainer">
+    <a id="myLinks" class="home" href="/">Home</a>
     <h2>Search by Title or Author</h2>
 
-    <form action="/searches" method="post">
+    <form class="queryForm" action="/searches" method="post">
       <!-- when we make a form with a "post" method -->
       <!-- the data from the form is avail on the req.body -->
       <!-- it is available via the input "name" -->
@@ -24,6 +25,7 @@
 
       <button class='inpD' type="submit">Search the Google Books API</button>
     </form>
+    </div>
 
     <%- include('../../layout/footer') %>
 

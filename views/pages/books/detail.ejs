@@ -2,8 +2,10 @@
 <html>
   <%- include('../../layout/head') %>
   <body>
-  	<%- include('../../layout/header') %>
-    <%- include('show.ejs', { book : book }) %>
+    <%- include('../../layout/header') %>
+    <div class="detailContainer">
+      <%- include('show.ejs', { book : book }) %>
+    </div>
     <%- include('../../layout/footer') %>
     <%- include('../../layout/navScript') %>
   </body>

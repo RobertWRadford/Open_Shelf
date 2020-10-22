@@ -3,12 +3,13 @@
   <%- include('../layout/head') %>
   <body>
     <%- include('../layout/header') %>
+    <div class="indexContainer">
     <a href='/search'>New Search</a>
-    <p>Hello World</p>
     <% seedBooks.forEach((book, index) => { %>
       <%- include('books/show.ejs', { book : book }) %>
       <a href='books/<%=book.id%>'>View details</a>
     <% }); %>
+    </div>
     <%- include('../layout/footer') %>
     <%- include('../layout/navScript') %>
   </body>
