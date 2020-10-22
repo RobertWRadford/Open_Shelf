@@ -6,6 +6,7 @@ const pg = require('pg');
 const superagent = require('superagent');
 const app = express();
 const cors = require('cors');
+const methodOverride = require('method-override');
 const { response } = require('express');
 const PORT = process.env.PORT || 3030;
 const client = new pg.Client(process.env.DATABASE_URL);
@@ -20,6 +21,7 @@ app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 app.use(cors());
+app.use(methodOverride('_method'));
 
 app.get('/', (req, res) => {
   let sql = `SELECT * FROM books;`;
@@ -34,12 +36,26 @@ app.get('/books/:id', (req, res) => {
   
   let searchId = req.params.id;
 
-  let sql = `SELECT * FROM books where id=${searchId}`
+  let sql = `SELECT * FROM books WHERE id=${searchId}`
 
   client.query(sql)
     .then(results => {
       res.render('pages/books/detail', {book: results.rows[0]});
     })
+    .catch(err => console.error('returned error:', err));
+
+});
+
+app.delete('/books/:id', (req, res) => {
+  
+  console.log('hi');
+
+  let searchId = req.params.id;
+
+  let sql = `DELETE FROM books WHERE id=${searchId}`
+
+  return client.query(sql)
+    .then(res.redirect('/'))
     .catch(err => console.error('returned error:', err));
 
 });

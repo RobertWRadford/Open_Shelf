@@ -6,6 +6,10 @@
     <div class="detailContainer">
       <%- include('show.ejs', { book : book }) %>
     </div>
+    <button id='updateButton'>update details</button>
+	<form action='/books/<%= book.id %>?_method=DELETE' method='post'>
+		<button>delete book</button>
+	</form>
     <%- include('../../layout/footer') %>
     <%- include('../../layout/navScript') %>
   </body>
