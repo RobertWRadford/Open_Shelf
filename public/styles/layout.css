@@ -61,6 +61,16 @@
 
 /*end source code*/
 
+.queryForm {
+	display: inline-grid;
+	grid-column-start: 2;
+	grid-column-end: 3;
+	grid-row-start: 4; 
+	grid-row-end: 11;
+	grid-template-columns: 79.5vw;
+	grid-template-rows: 6.4vh 2.9vh 6.4vh 2.9vh 6.4vh 2.9vh 6.4vh;
+}
+
 .inpA {
 	grid-column-start: 1;
 	grid-column-end: 2;
@@ -123,4 +133,48 @@
 	grid-row-start: 2;
 	grid-row-end: 3;
 	line-height: 2.77vh;
+}
+
+.newContainer {
+	margin-top: 8.6vh;
+	display: inline-grid;
+	grid-template-columns: 10.25vw 79.5vw 10.25vw;
+	grid-template-rows: 5.8vh 4.4vh 6.4vh 2.9vh 6.4vh 2.9vh 6.4vh 2.9vh 6.4vh 41.1vh;
+}
+
+.indexContainer {
+	display: flex;
+	flex-direction: column;
+	z-index: 0;
+	padding-top: 20px;
+	justify-content: flex-start;
+	margin-top: 8.6vh;
+}
+
+.indexContainer > a {
+	margin: auto;
+}
+
+.bookSection {
+	width: 50vw;
+	margin: auto;
+	margin-top: 5vh;
+}
+
+.detailContainer {
+	margin-top: 8.6vh;
+	height: 85.6vh;
+	align-items: center;
+	width: 100vw;
+	display: inline-block;
+}
+
+.showContainer {
+	margin-top: 8.6vh;
+	width: 100vw;
+	display: inline-block;
+}
+
+.bookItem > form > input {
+	width: 15vw;
 }

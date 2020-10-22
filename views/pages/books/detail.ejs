@@ -1,23 +1,12 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Book App Demo</title>
-    <link href='styles/reset.css' rel='stylesheet'/>
-    <link href='styles/base.css' rel='stylesheet'/>
-  </head>
+  <%- include('../../layout/head') %>
   <body>
-    <p>Hello World</p>
-    <%- include('books/show.ejs', { books : [book] }) %>
+    <%- include('../../layout/header') %>
+    <div class="detailContainer">
+      <%- include('show.ejs', { book : book }) %>
+    </div>
+    <%- include('../../layout/footer') %>
+    <%- include('../../layout/navScript') %>
   </body>
 </html>
-
-// <section class='bookshelf'>
-
-	// <img src= <%= book.image %> >
-	// <h2><%= book.title %></h2>
-	// <h3><%= book.authors %></h3>
-	// <p><%= book.description %></p>
-	// <p><%= book.ID %></p>
-	// <p>Bookshelf: Fantasy</p>
-
-// </section>
